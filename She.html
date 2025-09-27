@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Тойға шақыру — Аружан & Ерлан</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:linear-gradient(120deg,#ffdee9,#b5fffc);color:#222;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Great Vibes',cursive;color:#e11d48}
+    .container{max-width:1200px;margin:30px auto;padding:20px}
+    .card{background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:24px;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,0.15);position:relative;overflow:hidden;animation:fadeIn 1.5s ease}header{display:flex;gap:20px;align-items:center;animation:fadeInDown 1.5s ease}
+.avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:5px solid #fff;box-shadow:0 4px 15px rgba(0,0,0,0.3);animation:zoomIn 2s ease}
+.avatar img{width:100%;height:100%;object-fit:cover}
+h1{font-size:44px;margin-bottom:6px}
+p.lead{color:#555;font-size:16px}
+
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:20px}
+.stats{display:flex;gap:14px;margin-top:14px}
+.stat{flex:1;padding:16px;background:linear-gradient(135deg,#fef3f2,#fff);border-radius:14px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,0.08);animation:bounceIn 1.5s ease}
+.stat .num{font-size:28px;font-weight:700;color:#e11d48}
+
+.infograph{margin-top:24px;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-around}
+.circle{position:relative;width:120px;height:120px;border-radius:50%;background:conic-gradient(#e11d48 0% 70%, #ddd 70% 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;animation:rotateIn 2s ease}
+.circle span{position:absolute;bottom:-28px;color:#333;font-size:14px;font-weight:400}
+
+.timeline{margin-top:20px;padding-left:22px;border-left:3px dashed #f59e0b;position:relative}
+.timeline-item{padding:14px 0 14px 20px;animation:slideInLeft 1.5s ease}
+.timeline-item:before{content:'';position:absolute;left:-13px;width:20px;height:20px;background:#fff;border:5px solid #e11d48;border-radius:50%}
+
+.rsvp form{display:flex;flex-direction:column;gap:12px;animation:fadeInUp 1.5s ease}
+input,select,textarea{padding:12px;border-radius:10px;border:1px solid #ddd;font-family:inherit;transition:box-shadow .3s}
+input:focus,textarea:focus,select:focus{box-shadow:0 0 10px rgba(225,29,72,.3);outline:none}
+button{background:linear-gradient(135deg,#e11d48,#f59e0b);color:#fff;padding:14px;border-radius:12px;border:0;font-weight:600;cursor:pointer;transition:transform .3s,box-shadow .3s}
+button:hover{transform:scale(1.08);box-shadow:0 6px 18px rgba(225,29,72,.4)}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:20px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:14px;animation:zoomIn 1.5s ease;transition:transform .4s}
+.gallery img:hover{transform:scale(1.05)}
+
+footer{text-align:center;color:#444;margin-top:20px;font-size:15px;animation:fadeIn 2s ease}
+
+/* Animations */
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes bounceIn{0%{transform:scale(0.7);opacity:0}80%{transform:scale(1.1);opacity:1}100%{transform:scale(1)}}
+@keyframes zoomIn{from{transform:scale(0.5);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes rotateIn{from{transform:rotate(-180deg);opacity:0}to{transform:rotate(0);opacity:1}}
+
+/* confetti floating hearts */
+.confetti span{position:absolute;display:block;width:14px;height:14px;background:#e11d48;transform:rotate(45deg);animation:fall linear infinite}
+.confetti span:before,.confetti span:after{content:'';position:absolute;width:14px;height:14px;background:inherit;border-radius:50%}
+.confetti span:before{top:-7px;left:0}
+.confetti span:after{left:7px;top:0}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(45deg)}100%{transform:translateY(110vh) rotate(405deg)}}
+
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="avatar"><img src="https://picsum.photos/seed/couple/300/300" alt="couple"></div>
+        <div>
+          <h1>Аружан & Ерлан</h1>
+          <p class="lead">Узатылу тойына шақырамыз — бірге қуанышымызды бөлісіңіз</p>
+          <div class="muted">Күні: <strong id="eventDateText">2025-10-15 16:00</strong></div>
+          <div class="muted">Есептелген уақыт: <strong id="countdown">загрузка...</strong></div>
+        </div>
+      </header><div class="grid">
+    <section>
+      <h2>Біздің әңгіме</h2>
+      <p style="margin-top:8px">Біз кездестік, бірге күлдік, бірге армандадық — енді өмірді бірге бастаймыз. Сізді қуанышымызға ортақтасуға шақырамыз!</p>
+
+      <div class="stats">
+        <div class="stat"><div class="num" id="guests">0</div><div>Қонақтар</div></div>
+        <div class="stat"><div class="num" id="years">0</div><div>Жылдар бірге</div></div>
+        <div class="stat"><div class="num" id="songs">0</div><div>Әндер</div></div>
+      </div>
+
+      <div class="infograph">
+        <div class="circle">70%<span>Дайындық</span></div>
+        <div class="circle" style="background:conic-gradient(#f59e0b 0% 50%, #ddd 50% 100%)">50%<span>Жоспар</span></div>
+        <div class="circle" style="background:conic-gradient(#10b981 0% 90%, #ddd 90% 100%)">90%<span>Махаббат</span></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item"><time>16:00</time> — Құттықтау және қарсы алу</div>
+        <div class="timeline-item"><time>17:00</time> — Ресми салтанат</div>
+        <div class="timeline-item"><time>18:00</time> — Фуршет және би</div>
+        <div class="timeline-item"><time>20:00</time> — Кешкі бағдарлама</div>
+      </div>
+
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <aside class="card">
+      <h3>RSVP</h3>
+      <form id="rsvpForm">
+        <input name="name" required placeholder="Сіздің атыңыз" />
+        <input name="guests" type="number" min="1" value="1" />
+        <select name="coming">
+          <option value="yes">Келеді</option>
+          <option value="no">Келмейді</option>
+          <option value="maybe">Мүмкін</option>
+        </select>
+        <textarea name="message" placeholder="Қысқа хабарлама"></textarea>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="submit">Жіберу</button>
+          <button type="button" id="copyLink">Сілтемені көшіру</button>
+        </div>
+      </form>
+    </aside>
+  </div>
+
+  <footer>Киім стилі: smart casual. Бізбен бірге болыңыз!</footer>
+</div>
+
+  </div>  <script>
+    // countdown
+    const eventDate=new Date('2025-10-15T16:00:00');
+    document.getElementById('eventDateText').textContent=eventDate.toLocaleString();
+    function updateCountdown(){const now=new Date();const diff=eventDate-now;const el=document.getElementById('countdown');if(diff<=0){el.textContent='Басталды!';clearInterval(t);}else{const d=Math.floor(diff/(1000*60*60*24));const h=Math.floor((diff/(1000*60*60))%24);const m=Math.floor((diff/(1000*60))%60);el.textContent=`${d} күн ${h} сағ ${m} мин`;}}updateCountdown();const t=setInterval(updateCountdown,30000);
+
+    // gallery
+    const gallery=document.getElementById('gallery');for(let i=1;i<=8;i++){const img=document.createElement('img');img.src=`https://picsum.photos/seed/wed${i}/400/400`;gallery.appendChild(img)}
+
+    // confetti hearts
+    const conf=document.getElementById('confetti');for(let i=0;i<40;i++){let s=document.createElement('span');s.style.left=Math.random()*100+'%';s.style.animationDuration=(3+Math.random()*6)+'s';s.style.opacity=Math.random();conf.appendChild(s)}
+
+    // counters
+    function animate(id,target){const el=document.getElementById(id);let start=0;const step=()=>{start+=Math.ceil(target/50);if(start>target)start=target;el.textContent=start;if(start<target)requestAnimationFrame(step)};step()}animate('guests',180);animate('years',3);animate('songs',12);
+
+    // RSVP mailto
+    document.getElementById('rsvpForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const subj='RSVP: '+f.get('name');const body=`Аты: ${f.get('name')}\nҚонақ саны: ${f.get('guests')}\nКеледі ме: ${f.get('coming')}\nХабарлама: ${f.get('message')}`;window.location.href=`mailto:youremail@example.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;});
+
+    // copy link button
+    const copyBtn=document.getElementById('copyLink');
+    copyBtn.style.cssText='padding:10px;border-radius:10px;border:0;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;cursor:pointer;font-weight:600';
+
+    function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:rgba(0,0,0,0.8);color:#fff;padding:10px 16px;border-radius:12px;z-index:9999;font-size:14px;transition:opacity .5s';document.body.appendChild(t);}t.textContent=msg;t.style.opacity=1;setTimeout(()=>{t.style.opacity=0;},2500)}
+
+    copyBtn.addEventListener('click',async ()=>{
+      const shareUrl = location.href;
+      // try Web Share API first
+      if(navigator.share){
+        try{await navigator.share({title:document.title,text:'Тойға шақыру',url:shareUrl});
+          showToast('Бөлісу терезесі ашылды');
+          return;
+        }catch(err){}
+      }
+      // fallback: copy to clipboard
+      try{await navigator.clipboard.writeText(shareUrl);showToast('Сілтеме көшірілді — енді жіберуге болады');}
+      catch(e){
+        const ta=document.createElement('textarea');ta.value=shareUrl;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('Сілтеме көшірілді');}catch(err){showToast('Көшіріп ала алмады — сілтемені өзіңіз таңдаңыз')}ta.remove();
+      }
+    });
+  </script></body>
+</html>
